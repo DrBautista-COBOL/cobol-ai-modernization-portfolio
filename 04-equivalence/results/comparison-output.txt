@@ -1,0 +1,21 @@
+Transactions: COBOL 9  Python 9
+  tran 1 acct 00000000001 DESC: COBOL 'Int. for a/c 00000000001<binary zeros>' Python 'Int. for a/c 00000000001'
+  tran 1 acct 00000000001 AMOUNT: COBOL '0000000012E' Python '0000000012F'  (1.25 vs 1.26)
+  tran 2 acct 00000000001 DESC: COBOL 'Int. for a/c 00000000001<binary zeros>' Python 'Int. for a/c 00000000001'
+  tran 3 acct 00000000002 DESC: COBOL 'Int. for a/c 00000000002<binary zeros>' Python 'Int. for a/c 00000000002'
+  tran 4 acct 00000000004 DESC: COBOL 'Int. for a/c 00000000004<binary zeros>' Python 'Int. for a/c 00000000004'
+  tran 4 acct 00000000004 AMOUNT: COBOL '0000000020H' Python '0000000020I'  (2.08 vs 2.09)
+  tran 5 acct 00000000005 DESC: COBOL 'Int. for a/c 00000000005<binary zeros>' Python 'Int. for a/c 00000000005'
+  tran 5 acct 00000000005 AMOUNT: COBOL '0000000010}' Python '0000000010J'  (-1.00 vs -1.01)
+  tran 6 acct 00000000006 DESC: COBOL 'Int. for a/c 00000000006<binary zeros>' Python 'Int. for a/c 00000000006'
+  tran 7 acct 00000000006 DESC: COBOL 'Int. for a/c 00000000006<binary zeros>' Python 'Int. for a/c 00000000006'
+  tran 8 acct 00000000006 DESC: COBOL 'Int. for a/c 00000000006<binary zeros>' Python 'Int. for a/c 00000000006'
+  tran 9 acct 00000000050 DESC: COBOL 'Int. for a/c 00000000050<binary zeros>' Python 'Int. for a/c 00000000050'
+Transaction field differences: 12
+Accounts: COBOL 50  Python 50
+  acct 00000000001 CURR-BAL: original 194.00  COBOL 200.46  Python 200.47
+  acct 00000000004 CURR-BAL: original 40.00  COBOL 42.08  Python 42.09
+  acct 00000000005 CURR-BAL: original 345.00  COBOL 344.00  Python 343.99
+  acct 00000000050 CURR-BAL: original 492.00  COBOL 492.00  Python 494.50
+Account balance differences: 4;  other-field differences: 0
+COBOL balance changes: [(1, '194.00', '200.46'), (2, '158.00', '170.50'), (4, '40.00', '42.08'), (5, '345.00', '344.00'), (6, '218.00', '222.58')]
