@@ -1,11 +1,11 @@
-# Project Plan — status as of 2026-09-24
+# Project Plan — status as of 2026-09-30
 
-**Done:** Steps 0–4 · **Next:** Step 5 (publish)
+**Done:** Steps 0–5 · **Next:** Step 6 (publish)
 
 Tick items off as you go. Each step produces one file in this repository.
 
 ## Step 0 — Set up (1 session)
-- [ ] Create a free GitHub account (do in Step 5) (use a professional username, e.g. `ebautista-modernization`)
+- [ ] Create a free GitHub account (do in Step 6) (use a professional username, e.g. `ebautista-modernization`)
 - [x] CardDemo files provided directly (INTCALC, CBACT04C, 5 copybooks)
 - [x] Locate these files inside the ZIP:
   - Program: `app/cbl/CBACT04C.cbl` (interest calculation)
@@ -39,7 +39,20 @@ Tick items off as you go. Each step produces one file in this repository.
 - [x] Run the original with GnuCOBOL and the Python version on the same input
 - [x] Diff the outputs; explain every difference
 
-## Step 5 — Publish (1 session)
+## Step 5 — Enterprise toolchain (5 sessions) → `05-rocket-visual-cobol/`
+- [x] Install Rocket Visual COBOL for Eclipse; license; first test program
+- [x] Import CBACT04C and the helper programs; Enterprise COBOL dialect; build
+- [x] Reproduce the INTCALC job (DD variables); compare with GnuCOBOL
+- [x] Debugger: show truncation, posting, and the dead end-of-file branch
+- [x] Write-up with screenshots
+
+## Step 6 — Publish (1 session)
 - [ ] Fill in the README "At a glance" and "Key findings"
 - [ ] Upload everything to a public GitHub repository
 - [ ] Add the link to résumé, LinkedIn and freelancermap
+
+## Step 7 — Dependency graph (future) → `06-dependency-graph/`
+- [ ] Load the Step 1 inventory (jobs → programs → files → copybooks → calls) into Neo4j
+- [ ] Queries: "what is affected if copybook X changes?", "which jobs touch the account file?"
+- [ ] Compare with an AI-generated dependency map; document what the AI missed (e.g. the XREFFIL1 alternate-index path)
+- [ ] Extend to more CardDemo programs to show the value at scale

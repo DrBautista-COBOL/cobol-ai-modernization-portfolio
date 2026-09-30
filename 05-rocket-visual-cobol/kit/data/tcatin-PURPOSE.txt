@@ -1,0 +1,11 @@
+ 1 01 0001    100.44  15%: 1.2555 -> truncate 1.25 vs round 1.26
+ 1 01 0002    250.10  25%: 5.2104 -> 5.21 either way; 2nd category, same account
+ 2 01 0001   1000.00  15%: exactly 12.50 (control case)
+ 3 02 0001    500.00  rate 0%: no interest, no transaction expected
+ 4 01 0003    100.28  25%: 2.0892 -> truncate 2.08 vs round 2.09
+ 5 01 0001    -80.44  credit balance, 15%: -1.0055 -> truncate -1.00 vs round -1.01
+ 6 01 0001    100.04  three categories on one account (accumulation)
+ 6 01 0002    100.02  
+ 6 04 0001    100.04  
+ 7 07 0001    900.00  rate 0% (type 07): no interest expected
+50 01 0001    200.00  LAST account in file: 2.50 must still be posted

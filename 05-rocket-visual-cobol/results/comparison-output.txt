@@ -1,0 +1,12 @@
+ACCOUNT FILE: 50 records Rocket, 50 GnuCOBOL -> IDENTICAL
+TRANSACTIONS: 9 records Rocket, 9 GnuCOBOL
+  tran 1: id 2022071800000001  acct 00000000001  amount   1.25  diff bytes: timestamp=14 filler=96 other=0
+  tran 2: id 2022071800000002  acct 00000000001  amount   5.21  diff bytes: timestamp=14 filler=96 other=0
+  tran 3: id 2022071800000003  acct 00000000002  amount  12.50  diff bytes: timestamp=14 filler=96 other=0
+  tran 4: id 2022071800000004  acct 00000000004  amount   2.08  diff bytes: timestamp=14 filler=96 other=0
+  tran 5: id 2022071800000005  acct 00000000005  amount  -1.00  diff bytes: timestamp=14 filler=96 other=0
+  tran 6: id 2022071800000006  acct 00000000006  amount   1.25  diff bytes: timestamp=12 filler=96 other=0
+  tran 7: id 2022071800000007  acct 00000000006  amount   2.08  diff bytes: timestamp=12 filler=96 other=0
+  tran 8: id 2022071800000008  acct 00000000006  amount   1.25  diff bytes: timestamp=14 filler=96 other=0
+  tran 9: id 2022071800000009  acct 00000000050  amount   2.50  diff bytes: timestamp=14 filler=96 other=0
+RESULT: business fields identical
