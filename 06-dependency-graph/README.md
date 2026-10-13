@@ -13,7 +13,9 @@ An AI assistant extracted every dependency of job `INTCALC` and program `CBACT04
 
 ## The graph
 
-![Full dependency graph of CBACT04C](screenshots/00-full-graph-cbact04c.png)
+![Verified dependency graph of job INTCALC and program CBACT04C](dependency-graph.png)
+
+The diagram is drawn from the same verified data that was loaded into Neo4j. The live Neo4j view is in [screenshots/00-full-graph-cbact04c.png](screenshots/00-full-graph-cbact04c.png).
 
 | Component type | Count | Examples |
 |---|---|---|
