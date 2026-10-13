@@ -1,0 +1,47 @@
+digraph G {
+  graph [rankdir=LR, fontname="Arial", bgcolor="white", pad=0.4, nodesep=0.35, ranksep=1.1,
+         label=<<b>CardDemo interest job: verified dependency graph</b><br/><font point-size="11">Job INTCALC / program CBACT04C · 16 components, 20 relationships · each checked against source<br/><font color="#b91c1c">red = findings from verification</font> · copybooks are also INCLUDED by CBACT04C (not drawn) · source: AWS CardDemo, commit 59cc6c2</font>>,
+         labelloc=t, fontsize=16];
+  node [fontname="Arial", fontsize=11, style="filled", penwidth=0];
+  edge [fontname="Arial", fontsize=9, color="#6b7280", fontcolor="#374151", arrowsize=0.7];
+
+  subgraph cluster_sched { label="Control-M schedule"; fontsize=10; fontcolor="#6b7280"; style=dashed; color="#c4c9d1";
+    CLOSEFIL [shape=box, style="rounded,filled", fillcolor="#a5f3fc", label="CLOSEFIL\n(job)"];
+    INTCALC  [shape=box, style="rounded,filled", fillcolor="#67e8f9", label="INTCALC\n(job)"];
+    COMBTRAN [shape=box, style="rounded,filled", fillcolor="#a5f3fc", label="COMBTRAN\n(job)"];
+  }
+  CBACT04C [shape=box, style="rounded,filled", fillcolor="#3b82f6", fontcolor="white", fontsize=13, label=<<b>CBACT04C</b><br/><font point-size="9">interest calculation</font>>];
+  CEE3ABD  [shape=box, style="rounded,filled,dashed", fillcolor="#e5e7eb", penwidth=1, color="#9ca3af", label="CEE3ABD\nIBM abend routine\n(system, not app code)"];
+
+  node [shape=cylinder, fillcolor="#fdba8c"];
+  TCATBAL  [label="TCATBAL\ncategory balances\nKSDS"];
+  CARDXREF [label="CARDXREF\ncard-account xref\nKSDS"];
+  AIX      [label="CARDXREF AIX path\nby account ID", fillcolor="#fed7aa", penwidth=2, color="#dc2626"];
+  DISCGRP  [label="DISCGRP\ninterest rates\nKSDS"];
+  ACCTDATA [label="ACCTDATA\naccount master\nKSDS", fillcolor="#fb923c"];
+  SYSTRAN  [label="SYSTRAN(+1)\ninterest transactions\nnew GDG", fillcolor="#fb923c"];
+
+  node [shape=note, fillcolor="#cffafe", fontsize=10];
+  CVTRA01Y; CVACT03Y; CVTRA02Y; CVACT01Y; CVTRA05Y;
+
+  CLOSEFIL -> INTCALC [label="PRECEDES"];
+  INTCALC -> COMBTRAN [label="PRECEDES"];
+  INTCALC -> CBACT04C [label="EXECUTES\nSTEP15", penwidth=1.5];
+
+  TCATBAL  -> CBACT04C [label="READS (TCATBALF)\nsequential, drives run", dir=back];
+  CARDXREF -> CBACT04C [label="READS (XREFFILE)", dir=back];
+  AIX      -> CBACT04C [label="READS (XREFFIL1)\nhidden: not named in program", dir=back, color="#dc2626", fontcolor="#b91c1c", penwidth=1.6];
+  DISCGRP  -> CBACT04C [label="READS (DISCGRP)\nrule: fallback to 'DEFAULT'", dir=back, color="#dc2626", fontcolor="#b91c1c", penwidth=1.6];
+
+  CBACT04C -> ACCTDATA [label="UPDATES (ACCTFILE)\nREAD + REWRITE", penwidth=1.6, color="#c2410c", fontcolor="#9a3412"];
+  CBACT04C -> SYSTRAN  [label="WRITES (TRANSACT)", penwidth=1.6, color="#c2410c", fontcolor="#9a3412"];
+  CBACT04C -> CEE3ABD  [label="CALLS on error", style=dashed];
+
+  edge [style=dotted, color="#0e7490", fontcolor="#0e7490", label="DESCRIBES", arrowhead=none];
+  CVTRA01Y -> TCATBAL [constraint=false]; CVACT03Y -> CARDXREF [constraint=false]; CVTRA02Y -> DISCGRP [constraint=false];
+  ACCTDATA -> CVACT01Y; SYSTRAN -> CVTRA05Y;
+
+  {rank=same; TCATBAL; CARDXREF; AIX; DISCGRP;}
+  {rank=same; CVTRA01Y; CVACT03Y; CVTRA02Y;}
+
+}
