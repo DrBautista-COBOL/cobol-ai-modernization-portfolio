@@ -1,0 +1,17 @@
+id,label,name,description,source,line,verified,notes
+INTCALC,Job,INTCALC,Monthly interest calculation job,jcl/INTCALC.jcl,1,Y,
+CLOSEFIL,Job,CLOSEFIL,Runs before INTCALC (closes CICS files),scheduler/CardDemo.controlm,63,Y,
+COMBTRAN,Job,COMBTRAN,Runs after INTCALC (combines transaction files),scheduler/CardDemo.controlm,75,Y,
+CBACT04C,Program,CBACT04C,Batch COBOL: computes interest and fees per account/category,cbl/CBACT04C.cbl,1,Y,
+CEE3ABD,SystemRoutine,CEE3ABD,"IBM Language Environment abend routine (system, not CardDemo code)",cbl/CBACT04C.cbl,632,Y,
+TCATBAL,Dataset,AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS,Transaction category balances (KSDS),jcl/INTCALC.jcl,28,Y,
+CARDXREF,Dataset,AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS,Card-to-account cross reference (KSDS),jcl/INTCALC.jcl,30,Y,
+CARDXREF_AIX,Dataset,AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH,Alternate index path on CARDXREF by account ID,jcl/INTCALC.jcl,32,Y,
+ACCTDATA,Dataset,AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS,Account master (KSDS),jcl/INTCALC.jcl,34,Y,
+DISCGRP,Dataset,AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS,Disclosure groups / interest rates (KSDS),jcl/INTCALC.jcl,36,Y,
+SYSTRAN,Dataset,AWS.M2.CARDDEMO.SYSTRAN(+1),System-generated interest transactions (new GDG generation),jcl/INTCALC.jcl,41,Y,AI cited line 42; corrected to 41 in review (DSN line of the TRANSACT DD).
+CVTRA01Y,Copybook,CVTRA01Y,Layout TRAN-CAT-BAL-RECORD (50 bytes),cpy/CVTRA01Y.cpy,1,Y,
+CVACT03Y,Copybook,CVACT03Y,Layout CARD-XREF-RECORD (50 bytes),cpy/CVACT03Y.cpy,1,Y,
+CVTRA02Y,Copybook,CVTRA02Y,Layout DIS-GROUP-RECORD (50 bytes),cpy/CVTRA02Y.cpy,1,Y,
+CVACT01Y,Copybook,CVACT01Y,Layout ACCOUNT-RECORD (300 bytes),cpy/CVACT01Y.cpy,1,Y,
+CVTRA05Y,Copybook,CVTRA05Y,Layout TRAN-RECORD (350 bytes),cpy/CVTRA05Y.cpy,1,Y,

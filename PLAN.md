@@ -52,7 +52,7 @@ Tick items off as you go. Each step produces one file in this repository.
 - [ ] Add the link to résumé, LinkedIn and freelancermap
 
 ## Step 7 — Dependency graph (future) → `06-dependency-graph/`
-- [ ] Load the Step 1 inventory (jobs → programs → files → copybooks → calls) into Neo4j
-- [ ] Queries: "what is affected if copybook X changes?", "which jobs touch the account file?"
-- [ ] Compare with an AI-generated dependency map; document what the AI missed (e.g. the XREFFIL1 alternate-index path)
+- [x] Load the Step 1 inventory (jobs → programs → files → copybooks → calls) into Neo4j
+- [x] Queries: "what is affected if copybook X changes?", "which jobs touch the account file?"
+- [x] Compare with an AI-generated dependency map; document what the AI missed (e.g. the XREFFIL1 alternate-index path)
 - [ ] Extend to more CardDemo programs to show the value at scale
